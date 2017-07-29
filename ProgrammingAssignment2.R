@@ -1,0 +1,50 @@
+
+R version 3.4.1 (2017-06-30) -- "Single Candle"
+Copyright (C) 2017 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin15.6.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[R.app GUI 1.70 (7375) x86_64-apple-darwin15.6.0]
+
+[Workspace restored from /Users/aisuluomar/.RData]
+[History restored from /Users/aisuluomar/.Rapp.history]
+
+> makeCacheMatrix <- function(x = matrix()) {
++ inv <- function(y) {
++ x <<- y
++ inv <<- NULL
++ }
++ get <- function () x
++ setInverse <- function(inverse) inv <<- inverse
++ getInverse <- function() inv
++ list(set = set,
++ get = get,
++ setInverse = setInverse,
++ getInverse = getInverse)
++ }
+2017-07-29 10:02:08.309 R[6883:1804668] Couldn't find or read strings file SlicesStrings
+> cacheSalve <- function(x, ...) {
++ inv <- x$getInverse()
++ if(!is.null(inv)) {
++ message("getting cached data")
++ return(inv)
++ }
++ mat <- x$get()
++ inv <- solve(mat, ...)
++ x$setInverse(inv)
++ inv
++ }
+> 
