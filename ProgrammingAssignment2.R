@@ -35,7 +35,7 @@ Type 'q()' to quit R.
 + setInverse = setInverse,
 + getInverse = getInverse)
 + }
-2017-07-29 10:02:08.309 R[6883:1804668] Couldn't find or read strings file SlicesStrings
+
 > cacheSalve <- function(x, ...) {
 + inv <- x$getInverse()
 + if(!is.null(inv)) {
